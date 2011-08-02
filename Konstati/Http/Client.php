@@ -67,11 +67,12 @@ class Konstati_Http_Client
     {
         $context = stream_context_create(array(
             'http' => array(
-                'method'        => $method,
-                'timeout'       => 5,
-                'ignore_errors' => true,
-                'content'       => ($method === 'POST') ? json_encode($params) : null,
-                'header'        => join("\r\n", array(
+                'method'          => $method,
+                'timeout'         => 5,
+                'ignore_errors'   => true,
+                'follow_location' => false,
+                'content'         => ($method === 'POST') ? json_encode($params) : null,
+                'header'          => join("\r\n", array(
                     sprintf("Authorization: Basic %s", base64_encode($this->username . ':' . $this->apiKey)),
                     'Content-type: application/json',
                     'User-Agent: Konstati PHP Client v1.0.0',
