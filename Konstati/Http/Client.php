@@ -86,7 +86,7 @@ class Konstati_Http_Client
             $resourceUrl .= '?' . http_build_query($params);
         }
 
-        $responseBody = @file_get_contents($resourceUrl, null, $context);
+        $responseBody = file_get_contents($resourceUrl, null, $context);
 
         preg_match("|^HTTP/[\d\.x]+ (?<code>\d+) (?<message>.*)|", $http_response_header[0], $httpStatus);
 
