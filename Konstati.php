@@ -44,6 +44,11 @@ class Konstati
     protected $endpoint;
 
     /**
+     * @var string API endpoint versio
+    */
+    protected $version;
+
+    /**
      * @var array Lazily-loaded instances
      */
     protected $instances;
@@ -54,16 +59,19 @@ class Konstati
     protected $resources = array('account', 'tests');
 
     /**
+     * Class constructor
      *
      * @param type $username API username
      * @param type $apiKey   API key
      * @param type $endpoint API endpoint
+     * @param type $version  API endpoint version
      */
-    public function __construct($username, $apiKey, $endpoint = 'https://api.konstati.co')
+    public function __construct($username, $apiKey, $endpoint = 'https://api.konstati.co', $version = 'v1')
     {
         $this->username = $username;
         $this->apiKey   = $apiKey;
         $this->endpoint = $endpoint;
+        $this->version  = $version;
     }
 
     /**
