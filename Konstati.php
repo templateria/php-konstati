@@ -70,7 +70,7 @@ class Konstati
     {
         $this->username = $username;
         $this->apiKey   = $apiKey;
-        $this->endpoint = $endpoint;
+        $this->endpoint = $endpoint . '/' . $version;
         $this->version  = $version;
     }
 
