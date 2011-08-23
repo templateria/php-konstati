@@ -96,7 +96,11 @@ class Konstati_Http_Client
 
             if (!empty($responseBody)) {
                 $response = json_decode($responseBody);
-                $message  = $response->errorMessage;
+                if ($response !== null) {
+                    $message = $response->errorMessage;
+                } else {
+                    $message = $responseBody;
+                }
             }
 
             throw new Konstati_Exception($message, $httpStatus['code']);
